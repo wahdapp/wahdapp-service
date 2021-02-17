@@ -1,0 +1,122 @@
+{
+  "en": {
+    "PRAYERS": {
+      "fajr": "Fajr",
+      "dhuhr": "Dhuhr",
+      "asr": "Asr",
+      "maghrib": "Maghrib",
+      "isha": "Isha",
+      "jumuah": "Jumuah",
+      "janazah": "Janazah"
+    },
+    "JOIN_PRAYER": "{user} is joining to your {prayer} prayer.",
+    "NEW_PRAYER": "{user} is inviting you to join the {prayer} prayer.",
+    "NEW_PARTICIPANT": "New participant!",
+    "NEW_PRAYER_TITLE": "New prayer nearby!"
+  },
+  "zh_hant": {
+    "PRAYERS": {
+      "fajr": "晨礼",
+      "dhuhr": "晌礼",
+      "asr": "晡礼",
+      "maghrib": "昏礼",
+      "isha": "宵礼",
+      "jumuah": "聚礼",
+      "janazah": "葬礼"
+    },
+    "JOIN_PRAYER": "{user}将参加您邀请的{prayer}。",
+    "NEW_PRAYER": "{user}邀请您一起参加{prayer}",
+    "NEW_PARTICIPANT": "有新的参加者！",
+    "NEW_PRAYER_TITLE": "附近有新的礼拜！"
+  },
+  "zh_hans": {
+    "PRAYERS": {
+      "fajr": "晨禮",
+      "dhuhr": "晌禮",
+      "asr": "晡禮",
+      "maghrib": "昏禮",
+      "isha": "宵禮",
+      "jumuah": "聚禮",
+      "janazah": "葬禮"
+    },
+    "JOIN_PRAYER": "{user}將參加您邀請的{prayer}。",
+    "NEW_PRAYER": "{user}邀請您一起參加{prayer}",
+    "NEW_PARTICIPANT": "有新的參加者！",
+    "NEW_PRAYER_TITLE": "附近有新的禮拜！"
+  },
+  "id": {
+    "PRAYERS": {
+      "fajr": "Subuh",
+      "dhuhr": "Dhuhur",
+      "asr": "Ashar",
+      "maghrib": "Maghrib",
+      "isha": "Isha",
+      "jumuah": "Jumatan",
+      "janazah": "Jenazah"
+    },
+    "JOIN_PRAYER": "{user} akan bergabung ke sholat {prayer} anda.",
+    "NEW_PRAYER": "{user} mungundang anda untuk bergabung ke sholat {prayer}.",
+    "NEW_PARTICIPANT": "Peserta baru!",
+    "NEW_PRAYER_TITLE": "Ada sholat di dekat anda!"
+  },
+  "fr": {
+    "PRAYERS": {
+      "fajr": "Fajr",
+      "dhuhr": "Dhuhr",
+      "asr": "Asr",
+      "maghrib": "Maghrib",
+      "isha": "Isha",
+      "jumuah": "Jumuah",
+      "janazah": "Janazah"
+    },
+    "JOIN_PRAYER": "{user} va rejoindre votre prière de {prayer}.",
+    "NEW_PRAYER": "{user} vous a invité à rejoindre la prière de {prayer}.",
+    "NEW_PARTICIPANT": "Nouveau participant!",
+    "NEW_PRAYER_TITLE": "Nouvelle prière à proximité!"
+  },
+  "tr": {
+    "PRAYERS": {
+      "fajr": "Sabah",
+      "dhuhr": "Öğle",
+      "asr": "İkindi",
+      "maghrib": "Akşam",
+      "isha": "Yatsı",
+      "jumuah": "Cuma",
+      "janazah": "Cenaze"
+    },
+    "JOIN_PRAYER": "{user} katılıyor senin {prayer} cemaatine.",
+    "NEW_PRAYER": "{user} davet ediyor katılmana {prayer} cemaatine.",
+    "NEW_PARTICIPANT": "Yeni katılımcı!",
+    "NEW_PRAYER_TITLE": "Yakında yeni cemaat!"
+  },
+  "ar": {
+    "PRAYERS": {
+      "fajr": "الفجر",
+      "dhuhr": "الضهر",
+      "asr": "العصر",
+      "maghrib": "المغرب",
+      "isha": "العشاء",
+      "jumuah": "الجمعة",
+      "janazah": "الجنازة"
+    },
+    "JOIN_PRAYER": "{user} ينضم إلى صلاتك {prayer}.",
+    "NEW_PRAYER": "يدعوك {user} للانضمام إلى {prayer}.",
+    "NEW_PARTICIPANT": "!مشارك جديد",
+    "NEW_PRAYER_TITLE": "صلاة جديدة في مكان قريب"
+  },
+  "ru": {
+    "PRAYERS": {
+      "fajr": "Фаджр",
+      "dhuhr": "Зухр",
+      "asr": "Аср",
+      "maghrib": "Магриб",
+      "isha": "Иша",
+      "jumuah": "Джума",
+      "janazah": "Джаназа"
+    },
+    "JOIN_PRAYER": "{user} присоединяется к вашей {prayer} молитве.",
+    "NEW_PRAYER": "{user} приглашает вас присоединиться к {prayer} молитве.",
+    "NEW_PARTICIPANT": "Новый участник!",
+    "NEW_PRAYER_TITLE": "Рядом новая молитва!"
+  }
+}

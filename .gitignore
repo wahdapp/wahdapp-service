@@ -1,0 +1,10 @@
+/env
+/.vscode
+/.idea
+/__pycache__
+/migrations/__pycache__
+/migrations/versions/__pycache__
+/app/__pycache__
+/views/__pycache__
+*firebase.json
+.env
