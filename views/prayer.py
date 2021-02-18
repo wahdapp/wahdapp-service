@@ -131,7 +131,7 @@ def filter_feed():
 
 
     data = request.args
-    filter_pref
+    filter_pref = None
 
     if logged:
         filter_pref = db.session.query(models.FilterPreference).get(logged)
@@ -184,7 +184,7 @@ def filter_map():
 
 
     data = request.args
-    filter_pref
+    filter_pref = None
 
     if logged:
         filter_pref = db.session.query(models.FilterPreference).get(logged)
