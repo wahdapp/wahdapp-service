@@ -18,23 +18,18 @@ prayer_view = Blueprint('prayer_view', __name__)
 
 @prayer_view.route('/prayer', methods=['GET', 'POST', 'DELETE'])
 def prayer():
-    logged = login_required(request.headers.get('Authorization').split()[1])
-    if not logged:
-        return {}, 401
-
     if request.method == 'GET':
-        logged = login_required(request.headers.get('Authorization').split()[1])
-        if not logged:
-            return {}, 401
         prayer_id = request.args.get('id')
         prayer_data = db.session.query(models.Prayer).get(prayer_id)
-
         
         if not prayer_data:
             return {'status': 'failure', 'error': 'prayer not found.'}, 404
         return jsonify({'status': 'success', 'data': prayer_data.serialize()}), 200
 
     elif request.method == 'POST':
+        logged = login_required(request.headers.get('Authorization').split()[1])
+        if not logged:
+            return {}, 401
         inviter = db.session.query(models.User).get(logged)
         data = request.get_json()
         prayer = None
@@ -114,6 +109,9 @@ def prayer():
         return jsonify({'status': 'success', 'data': p.id}), 201
 
     else:
+        logged = login_required(request.headers.get('Authorization').split()[1])
+        if not logged:
+            return {}, 401
         pid = request.args.get('id')
         prayer = db.session.query(models.Prayer).get(pid)
         if logged == prayer.inviter:
@@ -127,27 +125,35 @@ def prayer():
 @prayer_view.route('/prayer/feed', methods=['GET'])
 def filter_feed():
     logged = login_required(request.headers.get('Authorization').split()[1])
-    if not logged:
-        return {}, 401
 
     data = request.args
-    filter_pref = db.session.query(models.FilterPreference).get(logged)
+    filter_pref
 
-    distance = 30 * 0.014472  # filter_pref.distance * 0.014472
+    if logged:
+        filter_pref = db.session.query(models.FilterPreference).get(logged)
+
+    distance = 30 * 0.014472
 
     point = func.ST_PointFromText('POINT({} {})'.format(data['lng'], data['lat']), 4326)
     result = db.session.query(models.Prayer).filter(func.ST_DFullyWithin(models.Prayer.location, point, distance))
 
-    result = result.filter(models.Prayer.prayer.in_(filter_pref.selected_prayers))
+    if logged:
+        # apply filters from user's preference
+        result = result.filter(models.Prayer.prayer.in_(filter_pref.selected_prayers))
+
     result = result.filter(models.Prayer.schedule_time >= data['timestamp'])
 
-    u = db.session.query(models.User).get(logged)
-    if u.gender == 'F':
-        if filter_pref.same_gender:
-            result = result.join(models.User).filter(models.User.gender=="F")
-        if filter_pref.minimum_participants:
-            result = result.filter(models.Prayer.participant_count >= filter_pref.minimum_participants)
+    if logged:
+        u = db.session.query(models.User).get(logged)
+        if u.gender == 'F':
+            if filter_pref.same_gender:
+                result = result.join(models.User).filter(models.User.gender=="F")
+            if filter_pref.minimum_participants:
+                result = result.filter(models.Prayer.participant_count >= filter_pref.minimum_participants)
+        else:
+            result = result.join(models.User).filter(models.User.gender=="M")
     else:
+        # only display invitations by male users if user is not logged
         result = result.join(models.User).filter(models.User.gender=="M")
 
     if data.get('sortBy') == 'distance':
@@ -168,24 +174,29 @@ def filter_feed():
 @prayer_view.route('/prayer/map', methods=['GET'])
 def filter_map():
     logged = login_required(request.headers.get('Authorization').split()[1])
-    if not logged:
-        return {}, 401
 
     data = request.args
-    filter_pref = db.session.query(models.FilterPreference).get(logged)
+    filter_pref
+
+    if logged:
+        filter_pref = db.session.query(models.FilterPreference).get(logged)
 
     distance = 3 * 0.014472  # filter_pref.distance * 0.014472
 
     point = func.ST_PointFromText('POINT({} {})'.format(data['lng'], data['lat']), 4326)
     result = db.session.query(models.Prayer).filter(func.ST_DFullyWithin(models.Prayer.location, point, distance))
 
-    u = db.session.query(models.User).get(logged)
-    if u.gender == 'F':
-        if filter_pref.same_gender:
-            result = result.join(models.User).filter(models.User.gender=="F")
-        if filter_pref.minimum_participants:
-            result = result.filter(models.Prayer.participant_count >= filter_pref.minimum_participants)
+    if logged:
+        u = db.session.query(models.User).get(logged)
+        if u.gender == 'F':
+            if filter_pref.same_gender:
+                result = result.join(models.User).filter(models.User.gender=="F")
+            if filter_pref.minimum_participants:
+                result = result.filter(models.Prayer.participant_count >= filter_pref.minimum_participants)
+        else:
+            result = result.join(models.User).filter(models.User.gender=="M")
     else:
+        # only display invitations by male users if user is not logged
         result = result.join(models.User).filter(models.User.gender=="M")
 
     return jsonify({'status': 'success', 'data': [i.serialize() for i in result.all()]}), 200
