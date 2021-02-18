@@ -126,9 +126,9 @@ def prayer():
 def filter_feed():
     logged = None
 
-    if (request.headers.get('Authorization')) {
+    if request.headers.get('Authorization'):
         logged = login_required(request.headers.get('Authorization').split()[1])
-    }
+
 
     data = request.args
     filter_pref
@@ -179,9 +179,9 @@ def filter_feed():
 def filter_map():
     logged = None
 
-    if (request.headers.get('Authorization')) {
+    if request.headers.get('Authorization'):
         logged = login_required(request.headers.get('Authorization').split()[1])
-    }
+
 
     data = request.args
     filter_pref
