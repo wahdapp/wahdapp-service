@@ -124,7 +124,11 @@ def prayer():
 
 @prayer_view.route('/prayer/feed', methods=['GET'])
 def filter_feed():
-    logged = login_required(request.headers.get('Authorization').split()[1])
+    logged = None
+
+    if (request.headers.get('Authorization')) {
+        logged = login_required(request.headers.get('Authorization').split()[1])
+    }
 
     data = request.args
     filter_pref
@@ -173,7 +177,11 @@ def filter_feed():
 
 @prayer_view.route('/prayer/map', methods=['GET'])
 def filter_map():
-    logged = login_required(request.headers.get('Authorization').split()[1])
+    logged = None
+
+    if (request.headers.get('Authorization')) {
+        logged = login_required(request.headers.get('Authorization').split()[1])
+    }
 
     data = request.args
     filter_pref
