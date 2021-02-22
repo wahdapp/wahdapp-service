@@ -59,11 +59,11 @@ def user():
             return {}, 401
         user_id = request.args.get('user_id')
         user_data = models.User.query.get(user_id)
-        data = user_data.private_info()
 
-        
         if not user_data:
             return {'status': 'failure', 'error': 'user not found.'}, 404
+
+        data = user_data.private_info()
         return jsonify({'status': 'success', 'data': data}), 200
 
     elif request.method == 'PATCH':
