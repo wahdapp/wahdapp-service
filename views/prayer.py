@@ -63,8 +63,11 @@ def prayer():
         km = 30 if data['selected_prayer'] == 'janazah' else 3
         distance = km * 0.014472
         point = func.ST_PointFromText('POINT({} {})'.format(data['lng'], data['lat']), 4326)
-        nearbyUsers = db.session.query(models.User).filter(func.ST_DFullyWithin(models.User.location, point, distance)).all()
-        
+        nearbyUsers = db.session.query(models.User).filter(func.ST_DFullyWithin(models.User.location, point, distance))
+        if inviter.gender == 'M':
+            nearbyUsers = nearbyUsers.join(models.FilterPreference).filter(models.FilterPreference.same_gender==False).all()
+        else:
+            nearbyUsers = nearbyUsers.filter(models.User.gender=='F').all()
         # Notify nearby users by sending request to the Expo server
         try:
             payloads = []

@@ -161,7 +161,8 @@ def user_filter():
         try:
             pref.selected_prayers = data['selected_prayers']
             pref.minimum_participants = data['minimum_participants']
-            pref.same_gender = data['same_gender']
+            if u.gender == 'F':
+                pref.same_gender = data['same_gender']
             db.session.commit()
             
         except Exception:
