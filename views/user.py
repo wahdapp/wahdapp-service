@@ -208,6 +208,10 @@ def user_device_token():
           return {}, 401
 
       data = request.get_json()
+
+      if not data['token']:
+        return {'status': 'failure', 'error': 'No token provided'}, 400
+      
       u = models.User.query.get(logged)
       u.device_token = data['token']
       db.session.commit()
