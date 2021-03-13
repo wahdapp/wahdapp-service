@@ -95,7 +95,7 @@ def prayer():
                     "type": "section",
                     "text": {
                         "type": "mrkdwn",
-                        "text": "Prayer Invitation\n>*Prayer ID*\n>{prayer_id}\n>\n>*Inviter ID*\n>{inviter_id}\n>\n>*Inviter Name*\n>{inviter_name}\n>\n>*Prayer*\n>{prayer}\n>\n>*Schedule Time*\n>{schedule_time}\n>\n>*Description*\n>{description}\n>\n>*Location*\n>https://www.google.com/maps/@{latitude},{longitude}".format(
+                        "text": "Prayer Invitation\n>*Prayer ID*\n>{prayer_id}\n>\n>*Inviter ID*\n>{inviter_id}\n>\n>*Inviter Name*\n>{inviter_name}\n>\n>*Prayer*\n>{prayer}\n>\n>*Schedule Time*\n>{schedule_time}\n>\n>*Description*\n>{description}\n>\n>*Location*\n>https://www.google.com/maps/@{latitude},{longitude},15z".format(
                             prayer_id=p.id, inviter_id=logged, inviter_name=user_data['full_name'], prayer=prayer,
                             schedule_time=time, description=data['description'], latitude=data['lat'],
                             longitude=data['lng'])
