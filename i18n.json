@@ -16,21 +16,6 @@
   },
   "zh_hant": {
     "PRAYERS": {
-      "fajr": "晨礼",
-      "dhuhr": "晌礼",
-      "asr": "晡礼",
-      "maghrib": "昏礼",
-      "isha": "宵礼",
-      "jumuah": "聚礼",
-      "janazah": "葬礼"
-    },
-    "JOIN_PRAYER": "{user}将参加您邀请的{prayer}。",
-    "NEW_PRAYER": "{user}邀请您一起参加{prayer}",
-    "NEW_PARTICIPANT": "有新的参加者！",
-    "NEW_PRAYER_TITLE": "附近有新的礼拜！"
-  },
-  "zh_hans": {
-    "PRAYERS": {
       "fajr": "晨禮",
       "dhuhr": "晌禮",
       "asr": "晡禮",
@@ -43,6 +28,21 @@
     "NEW_PRAYER": "{user}邀請您一起參加{prayer}",
     "NEW_PARTICIPANT": "有新的參加者！",
     "NEW_PRAYER_TITLE": "附近有新的禮拜！"
+  },
+  "zh_hans": {
+    "PRAYERS": {
+      "fajr": "晨礼",
+      "dhuhr": "晌礼",
+      "asr": "晡礼",
+      "maghrib": "昏礼",
+      "isha": "宵礼",
+      "jumuah": "聚礼",
+      "janazah": "葬礼"
+    },
+    "JOIN_PRAYER": "{user}将参加您邀请的{prayer}。",
+    "NEW_PRAYER": "{user}邀请您一起参加{prayer}",
+    "NEW_PARTICIPANT": "有新的参加者！",
+    "NEW_PRAYER_TITLE": "附近有新的礼拜！"
   },
   "id": {
     "PRAYERS": {
